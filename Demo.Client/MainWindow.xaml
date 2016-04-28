@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo.Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Long running process..." Height="350" Width="525">
     <Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0"
+                    Margin="20"
+                    Content="Start process"
+                    Click="Button_Click"></Button>
+
+            <Label x:Name="lblOutput"
+                   Grid.Row="1"
+                   Margin="20"
+                   FontSize="26"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="Blue"
+                   FontWeight="Bold"
+                   Content="OUTPUT"/>
+
+            <Button Grid.Row="2"
+                    Margin="20"
+                    Content="Abort / Close process"
+                    Click="Button_Click_1"></Button>
+
+        </Grid>
         
     </Grid>
 </Window>
