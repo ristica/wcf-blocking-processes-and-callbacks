@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -99,6 +100,10 @@
     <ProjectReference Include="..\Demo.Contracts\Demo.Contracts.csproj">
       <Project>{dee91ec8-8552-4b86-9aad-a2725916d96e}</Project>
       <Name>Demo.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demo.Proxies\Demo.Proxies.csproj">
+      <Project>{5651141A-94F1-441E-A7AC-81B894D26937}</Project>
+      <Name>Demo.Proxies</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,25 +1,50 @@
-﻿using System.Windows;
+﻿using Demo.Contracts;
+using Demo.Proxies;
+using System.ComponentModel;
+using System.Windows;
+using System;
 
 namespace Demo.Client
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IProcessCallback
     {
+        private ProcessDuplexClient _proxy;
+        private bool _cancel;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void StartProcess(object sender, RoutedEventArgs e)
         {
+            this._proxy = new ProcessDuplexClient(new System.ServiceModel.InstanceContext(this));
+            this._proxy.StartProcess();
 
+            this._cancel = false;
+            this.BtnStart.IsEnabled = false;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
+            base.OnClosing(e);
 
+            this._cancel = true;
+            this._proxy.Abort();
+        }
+
+        private void CloseProcess(object sender, RoutedEventArgs e)
+        {
+            this._cancel = true;
+
+            this.BtnStart.IsEnabled = true;
+        }
+
+        public bool ReportBack(int nr)
+        {
+            this.lblOutput.Content = nr;
+
+            return this._cancel;
         }
     }
 }

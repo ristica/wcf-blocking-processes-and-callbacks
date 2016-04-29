@@ -7,15 +7,16 @@ namespace Demo.Host
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Starting the Long-Running-Service...");
+            System.Console.WriteLine("Starting the Service...");
             System.Console.WriteLine("");
 
-            var host = new ServiceHost(typeof(LrpManager));
+            var host = new ServiceHost(typeof(ProcessManager));
             host.Open();
 
             System.Console.WriteLine("Service started!");
             System.Console.WriteLine("");
             System.Console.WriteLine("Pres <Enter> to exit...");
+            System.Console.WriteLine("");
             System.Console.Read();
 
             // housekeeping

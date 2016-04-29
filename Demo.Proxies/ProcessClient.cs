@@ -1,9 +1,10 @@
 ﻿using Demo.Contracts;
 using System.ServiceModel;
+using System;
 
 namespace Demo.Proxies
 {
-    public class LrpClient : ClientBase<ILrp>, ILrp
+    public class ProcessClient : ClientBase<IProcess>, IProcess
     {
         public void StartProcess()
         {

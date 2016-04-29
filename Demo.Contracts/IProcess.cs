@@ -2,8 +2,8 @@
 
 namespace Demo.Contracts
 {
-    [ServiceContract]
-    public interface ILrp
+    [ServiceContract(CallbackContract = typeof(IProcessCallback))]
+    public interface IProcess
     {
         [OperationContract(IsOneWay = true)]
         void StartProcess();

@@ -17,8 +17,9 @@
 
             <Button Grid.Row="0"
                     Margin="20"
+                    Name="BtnStart"
                     Content="Start process"
-                    Click="Button_Click"></Button>
+                    Click="StartProcess"></Button>
 
             <Label x:Name="lblOutput"
                    Grid.Row="1"
@@ -31,9 +32,10 @@
                    Content="OUTPUT"/>
 
             <Button Grid.Row="2"
+                    Name="BtnStop"
                     Margin="20"
                     Content="Abort / Close process"
-                    Click="Button_Click_1"></Button>
+                    Click="CloseProcess"></Button>
 
         </Grid>
         
